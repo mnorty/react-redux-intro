@@ -21,9 +21,13 @@ function userReducer(state = initialState, action){
   switch(action.type){
     case GET_USER + '_PENDING':
       return {
-        ...state,
-        user: action.payload
+        ...state, 
+        loading: true,
       }
+    case GET_USER + '_FULFILLED':
+      return { loading: false, user: action.payload}
+    case GET_USER + '_REJECED':
+      return {...state, loading:false}
     default:
       return state
   }
