@@ -8,5 +8,5 @@ import store from './redux/store'
 ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider> 
+  </Provider>, 
   document.getElementById('root'));
