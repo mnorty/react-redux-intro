@@ -13,12 +13,20 @@ export function getUser(){
     .then((res) => res.data.results[0])
     return {
       type: GET_USER,
-      payloadd: user
+      payload: user
     }
 }
 
 function userReducer(state = initialState, action){
-  return state
+  switch(action.type){
+    case GET_USER + '_PENDING':
+      return {
+        ...state,
+        user: action.payload
+      }
+    default:
+      return state
+  }
 }
 
 export default userReducer
